@@ -8,6 +8,10 @@
  * 단방향 연결 리스트
  */
 public class LinkedListNode {
+    public void setNext(LinkedListNode next) {
+        this.next = next;
+    }
+
     LinkedListNode next = null;
     int data;
     public LinkedListNode(int d){

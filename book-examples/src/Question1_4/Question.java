@@ -27,7 +27,7 @@ public class Question {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("test");
+		System.out.println("tes2222t");
 		String str = "abc d e f";
 		char[] arr = new char[str.length() + 3 * 2 + 1];
 		for (int i = 0; i < str.length(); i++) {

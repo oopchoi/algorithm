@@ -40,13 +40,13 @@ public class Question {
         StringBuffer description = new StringBuffer();
         description.append("아스키 문자코드의 전체 갯수는 256개 이므로,\n");
         description.append("입력 받는 문자열 갯수가 256개가 넘으면\n");
-        description.append("중복되는 문자가 존재한다는 의미이기 때문에 곧 바로 return 한다.\n\n");
+        description.append("중복되는 문자가 존재한다는 의미가 된다.\n\n");
 
-        description.append("검증) 입력 받은 문자열의 갯수가 256개가 넘으면 false를 반환한다.\n");
-        description.append("1. 256개의 boolean 배열을 생성한다.\n");
-        description.append("2. 입력 받은 문자열의 길이만큼 루프를 돌면서 각 문자를 int형의 아스키코드로 변환한다.\n");
-        description.append("3. 아스키코드를 인덱스로 사용하여 해당하는 boolean 배열 요소를 검사하여 true로 마킹되어 있으면 false를 반환한다.\n");
-        description.append("4. 아스키코드를 인덱스로 사용하여 해당하는 boolean 배열 요소에 true를 마킹한다.");
+        description.append("1. 입력 받은 문자열의 갯수가 256개가 넘으면 false를 반환한다.\n");
+        description.append("2. 256개의 요소를 갖는 boolean 배열을 생성한다.\n");
+        description.append("3. 입력 받은 문자열의 길이만큼 루프를 돌면서 각 문자를 int형의 아스키코드로 변환한다.\n");
+        description.append("4. 아스키코드를 인덱스로 사용하여 해당하는 boolean 배열 요소를 검사하여 true로 마킹되어 있으면 false를 반환한다.\n");
+        description.append("5. 아스키코드를 인덱스로 사용하여 해당하는 boolean 배열 요소에 true를 마킹한다.");
         System.out.println("---------------------------- 해설 시작 (해법 1) -----------------------");
         System.out.println(description);
         System.out.println("---------------------------- 해설 끝 (해법 1) ------------------------");

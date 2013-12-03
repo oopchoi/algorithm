@@ -58,6 +58,8 @@ public class Question {
         }
         System.out.println("---------------------------- 코드 실행 끝 (해법 1) -----------------------");
 
+        System.out.println("---------------------------- 해설 시작 (해법 2) 생략 -----------------------");
+
 		/*String[] words = {"abcde", "hello", "apple", "kite", "padle"};
 		for (String word : words) {
 			System.out.println(word + ": " + isUniqueChars(word) + " " + isUniqueChars2(word));

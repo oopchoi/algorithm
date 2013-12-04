@@ -125,6 +125,7 @@ public class Question {
 		}
 		index = setChar(array, last, index, count);
         System.out.println("compressAlternate:최종 인덱스를 setChar() 호출해서 받아온다. index (" + index + ")");
+        System.out.println("compressAlternate:마지막으로 array를 String으로 변환해서 반환한다.");
         return String.valueOf(array);
 	}
 	

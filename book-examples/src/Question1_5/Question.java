@@ -3,14 +3,21 @@ package Question1_5;
 public class Question {
 
 	public static int setChar(char[] array, char c, int index, int count) {
-		array[index] = c;
+        System.out.println("setChar:받은 배열의 index에 c를 할당하고 index를 증가시킨다.");
+        System.out.println("setChar:index (" + index + "), c (" + c + ")");
+        array[index] = c;
 		index++;
-		char[] cnt = String.valueOf(count).toCharArray();
-		for (char x : cnt) {
+        System.out.println("setChar:증가된 index (" + index + ")");
+        char[] cnt = String.valueOf(count).toCharArray();
+        System.out.println("setChar:count 값을 String으로 변환 후 char 배열로 변환하고");
+        System.out.println("setChar:배열 요소만큼 반복문을 실행한다. count (" + count + ")");
+        for (char x : cnt) {
+            System.out.println("setChar:입력 받은 array의 index에 x값을 할당한 후 index를 증가시킨다. x (" + x + ")");
 			array[index] = x;
 			index++;
 		}
-		return index;
+        System.out.println("setChar:최종적으로 증가된 인덱스를 반환한다. index (" + index + ")");
+        return index;
 	}
 	
 	public static int countCompression(String str) {
@@ -93,6 +100,7 @@ public class Question {
 	
 	public static String compressAlternate(String str) {
 		int size = countCompression(str);
+        System.out.println("compressAlternate:size가 문자열 길이보다 크거나 같으면 원래 문자열을 그대로 반환한다.");
 		if (size >= str.length()) {
 			return str;
 		}
@@ -100,17 +108,24 @@ public class Question {
 		int index = 0;
 		char last = str.charAt(0);
 		int count = 1;
-		for (int i = 1; i < str.length(); i++) {
-			if (str.charAt(i) == last) {
+        System.out.println("compressAlternate:index, last(첫번째 문자), count 변수를 초기화. index (" + index + "), last (" + last + "), count (" + count + ")");
+        System.out.println("compressAlternate:문자열 길이만큼 반복문을 실행한다.");
+        for (int i = 1; i < str.length(); i++) {
+            System.out.println("compressAlternate:새로 들어온 문자하고 last 문자하고 같으면 카운트를 증가시킨다.");
+            System.out.println("compressAlternate:setChar()를 통해 index를 받아오고, last, count를 업데이트 한다.");
+            if (str.charAt(i) == last) {
 				count++;
-			} else {
+                System.out.println("compressAlternate:count (" + count+ ")");
+            } else {
 				index = setChar(array, last, index, count);
 				last = str.charAt(i);
 				count = 1;
-			}
+                System.out.println("compressAlternate:index (" + index + "), count (" + count + "), last (" + last + ")");
+            }
 		}
 		index = setChar(array, last, index, count);
-		return String.valueOf(array);
+        System.out.println("compressAlternate:최종 인덱스를 setChar() 호출해서 받아온다. index (" + index + ")");
+        return String.valueOf(array);
 	}
 	
 	public static void main(String[] args) {
@@ -148,5 +163,31 @@ public class Question {
 		//System.out.println("New String (len = " + str2.length() + "): " + str2);
 		//System.out.println("Potential Compression: " + c);
         System.out.println("---------------------------- 코드 실행 끝 (해법 1) -----------------------");
+
+        description.delete(0, description.length()-1);
+        description.append("StringBuffer를 쓸 수 없거나 쓰고 싶지 않을 때에 변환 결과 문자열의 길이를 계산해서\n");
+        description.append("그 결과를 사용해 올바른 길이의 char 배열을 만들어 낼 수 있다.\n");
+
+        description.append("1. 압축 결과로 만들어진 문자열이 원본 문자열보다 길이가 크거나 같은지 검사.\n");
+        description.append("2. 압축 결과 문자열 길이만큼 요소를 갖는 char 배열을 생성한다.\n");
+        description.append("3. last 변수에 첫번째 문자를 할당. index는 0, count는 1로 초기화한다.");
+        description.append("4. 입력 문자열 길이만큼 반복문을 실행한다.");
+        System.out.println("---------------------------- 해설 시작 (해법 2) -----------------------");
+        System.out.println(description);
+        System.out.println("---------------------------- 해설 끝 (해법 2) ------------------------");
+
+        System.out.println("---------------------------- 코드 실행 시작 (해법 2) -----------------------");
+        str = "abbccccccde";
+        System.out.println("입력 문자열 (" + str + ")");
+        str2 = compressAlternate(str);
+        System.out.println("출력 문자열 (" + str2 + ")");
+        //int c = countCompression(str);
+        //String str2 = compressAlternate(str);
+        //String t = compressBetter("");
+        //System.out.println("Compression: " + t);
+        //System.out.println("Old String (len = " + str.length() + "): " + str);
+        //System.out.println("New String (len = " + str2.length() + "): " + str2);
+        //System.out.println("Potential Compression: " + c);
+        System.out.println("---------------------------- 코드 실행 끝 (해법 2) -----------------------");
 	}
 }

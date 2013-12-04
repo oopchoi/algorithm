@@ -2,24 +2,38 @@ package Question1_5;
 
 public class Question {
 
+    /**
+     * 입력 받은 array의 입력 받은 index에 해당하는 요소에 입력받은 c 문자를 할당한다.
+     * @param array
+     * @param c
+     * @param index
+     * @param count
+     * @return
+     */
 	public static int setChar(char[] array, char c, int index, int count) {
         System.out.println("setChar:받은 배열의 index에 c를 할당하고 index를 증가시킨다.");
         System.out.println("setChar:index (" + index + "), c (" + c + ")");
-        array[index] = c;
-		index++;
+        array[index] = c;   // index에 문자 넣고
+		index++;            // index 증가 시켜서 count를 넣을 것이다.
         System.out.println("setChar:증가된 index (" + index + ")");
-        char[] cnt = String.valueOf(count).toCharArray();
+        char[] cnt = String.valueOf(count).toCharArray();   // 카운트를 문자열로 바꿔서 char 배열로 변환하고
         System.out.println("setChar:count 값을 String으로 변환 후 char 배열로 변환하고");
         System.out.println("setChar:배열 요소만큼 반복문을 실행한다. count (" + count + ")");
         for (char x : cnt) {
             System.out.println("setChar:입력 받은 array의 index에 x값을 할당한 후 index를 증가시킨다. x (" + x + ")");
-			array[index] = x;
-			index++;
+			array[index] = x;   // 증가 시킨 인덱스에 변환된 카운트 문자를 할당하고
+			index++;    // 인덱스를 증가 시킨다.
 		}
         System.out.println("setChar:최종적으로 증가된 인덱스를 반환한다. index (" + index + ")");
+        // 문자 + 카운트숫자 갯수 만큼 증가된 인덱스를 반환한다.
         return index;
 	}
-	
+
+    /**
+     * 압축 되었을 때의 문자열 길이를 반환한다.
+     * @param str
+     * @return
+     */
 	public static int countCompression(String str) {
         System.out.println("countCompression:입력 받은 문자열이 null이거나 비어있으면 0을 반환한다.");
         if (str == null || str.isEmpty()) return 0;
@@ -104,7 +118,9 @@ public class Question {
 		if (size >= str.length()) {
 			return str;
 		}
-		char[] array = new char[size];
+        System.out.println("compressAlternate:size (" + size + ")");
+        System.out.println("compressAlternate:압축된 문자열 결과의 사이즈 만큼 요소를 갖는 char 배열을 생성한다.");
+        char[] array = new char[size];
 		int index = 0;
 		char last = str.charAt(0);
 		int count = 1;
@@ -171,8 +187,8 @@ public class Question {
 
         description.append("1. 압축 결과로 만들어진 문자열이 원본 문자열보다 길이가 크거나 같은지 검사.\n");
         description.append("2. 압축 결과 문자열 길이만큼 요소를 갖는 char 배열을 생성한다.\n");
-        description.append("3. last 변수에 첫번째 문자를 할당. index는 0, count는 1로 초기화한다.");
-        description.append("4. 입력 문자열 길이만큼 반복문을 실행한다.");
+        description.append("3. last 변수에 첫번째 문자를 할당. index는 0, count는 1로 초기화한다.\n");
+        description.append("4. 입력 문자열 길이만큼 반복문을 실행하면서 압축 문자열을 편집해 나간다.");
         System.out.println("---------------------------- 해설 시작 (해법 2) -----------------------");
         System.out.println(description);
         System.out.println("---------------------------- 해설 끝 (해법 2) ------------------------");

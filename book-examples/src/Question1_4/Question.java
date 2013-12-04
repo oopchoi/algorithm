@@ -54,14 +54,14 @@ public class Question {
         description.append("그 결과를 최종 변환 결과 문자열의 길이를 계산하는 데 사용한다.\n");
         description.append("역방향으로 진행하면서 공백을 만나면 다음 위치에 '%20'을 복사한다.\n\n");
 
-        description.append("1. 공백 문자 카운트 변수와 실제 배열의 갯수를 담을 변수를 초기화한다.\n");
-        description.append("2. 입력받은 길이만큼 루프를 돌면서 입력 받은 char 배열 요소에 공백 문자가 있으면 카운트 변수에 1을 더한다.\n");
-        description.append("3. 실제 배열의 갯수를 '입력받은 길이 + 공백 문자 카운트 + * 2'로 계산해 둔다.\n");
-        description.append("4. 입력 받은 char 배열의 실제 배열의 갯수의 인덱스에 '역슬래시0'값으로 할당한다.\n");
-        description.append("5. 실제 배열의 갯수 값-1 부터 1 씩 감소시키면서 루프를 돌린다.\n");
-        description.append("6. 공백 문자를 만나면 [newLength-1]번째에 '0', [newLength-2]번째에 '2', [newLength-3]번째에 '%'를 할당한다.\n");
-        description.append("7. 실제 배열 갯수 변수에 -3 을 해서 할당한다.\n");
-        description.append("8. 공백 문자가 아니라면 [newLength-1]에 문자를 할당하고 실제 배열 갯수 변수에 -1 하여 할당한다.\n");
+        description.append("1. 공백 문자 카운트 변수와 인덱스 변수를 초기화한다.\n");
+        description.append("2. 문자열 길이만큼 루프를 돌면서 입력 받은 char 배열 요소에 공백 문자가 있으면 공백 문자 카운트 변수에 1을 더한다.\n");
+        description.append("3. 인덱스 변수에 마지막 인덱스 즉, '입력받은 길이 + 공백 문자 카운트 + * 2'로 저장해 둔다.\n");
+        description.append("4. 입력 받은 char 배열의 마지막 인덱스에 '역슬래시0'값으로 할당한다.\n");
+        description.append("5. 문자열 길이-1 부터 1 씩 감소시키면서 루프를 돌린다.\n");
+        description.append("6. 공백 문자를 만나면 [인덱스-1]번째에 '0', [인덱스-2]번째에 '2', [인덱스-3]번째에 '%'를 할당한다.\n");
+        description.append("7. 인덱스 변수에 -3 을 해서 할당한다.\n");
+        description.append("8. 공백 문자가 아니라면 [인덱스-1]에 문자를 할당하고 인덱스 변수에 -1 하여 할당한다.\n");
         System.out.println("---------------------------- 해설 시작 (해법 1) -----------------------");
         System.out.println(description);
         System.out.println("---------------------------- 해설 끝 (해법 1) ------------------------");

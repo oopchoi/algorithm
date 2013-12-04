@@ -46,7 +46,8 @@ public class AssortedMethods {
 			LinkedListNode next = new LinkedListNode(data, null, null);
 			prev.setNext(next);
 			prev = next;
-		}
+            System.out.println("randomLinkedList:prev=>"+prev.toString());
+        }
 		return root;
 	}
 	
@@ -141,9 +142,9 @@ public class AssortedMethods {
 	public static String charArrayToString(char[] array) {
 		StringBuilder buffer = new StringBuilder(array.length);
 		for (char c : array) {
-			if (c == 0) {
+			/*if (c == 0) {
 				break;
-			}
+			}*/
 			buffer.append(c);
 		}
 		return buffer.toString();
@@ -902,7 +903,7 @@ public class AssortedMethods {
 			"charge",
 			"farm",
 			"fear",
-                "test",
+			"test",
 			"determine",
 			"hair",
 			"results",
@@ -1047,7 +1048,7 @@ public class AssortedMethods {
 			"works",
 			"bed",
 			"wrong",
-                "main",
+			"main",
 			"unit",
 			"George",
 			"hit",

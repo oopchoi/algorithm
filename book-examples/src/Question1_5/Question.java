@@ -39,8 +39,8 @@ public class Question {
         if (str == null || str.isEmpty()) return 0;
 		char last = str.charAt(0);
         System.out.println("countCompression:첫번째 문자를 last 변수에 할당. last (" + last + ")");
-        int size = 0;
-		int count = 1;
+        int size = 0;   // 압축된 결과 문자열의 길이
+		int count = 1;  // 반복되는 문자의 카운트
         System.out.println("countCompression:size변수와 count 변수를 초기화. size (" + size + "), count (" + count + ")");
         System.out.println("countCompression:문자열 길이만큼 반복문을 실행. 단, i=1 부터 i<문자열.length() 까지");
         for (int i = 1; i < str.length(); i++) {
@@ -62,7 +62,12 @@ public class Question {
         System.out.println("countCompression:반복문 실행을 마친 후 size 에 (1증가 + 카운트를 문자열로 변환 후 length) 계산값 할당. size (" + size + ")");
 		return size;
 	}
-	
+
+    /**
+     * String 문자열을 + 해서 압축 문자열을 만든다.
+     * @param str
+     * @return
+     */
 	public static String compressBad(String str) {
 		int size = countCompression(str);
 		if (size >= str.length()) {
@@ -82,7 +87,12 @@ public class Question {
 		}
 		return mystr + last + count;
 	}
-	
+
+    /**
+     * StringBuffer에 압축된 결과 문자열을 append한다.
+     * @param str
+     * @return
+     */
 	public static String compressBetter(String str) {
 		int size = countCompression(str);
         System.out.println("compressBetter:size가 문자열 길이보다 크거나 같으면 원래 문자열을 그대로 반환한다.");
@@ -110,8 +120,13 @@ public class Question {
 		mystr.append(last);
 		mystr.append(count);
 		return mystr.toString();
-	}	
-	
+	}
+
+    /**
+     * char 배열을 만들어서 압축한 결과 문자열을 하나씩 넣어준다.
+     * @param str
+     * @return
+     */
 	public static String compressAlternate(String str) {
 		int size = countCompression(str);
         System.out.println("compressAlternate:size가 문자열 길이보다 크거나 같으면 원래 문자열을 그대로 반환한다.");

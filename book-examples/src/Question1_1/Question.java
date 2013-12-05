@@ -9,6 +9,12 @@ public class Question {
 		int checker = 0;
 		for (int i = 0; i < str.length(); i++) {
 			int val = str.charAt(i) - 'a';
+			System.out.println("str.charAt(i):" + str.charAt(i) + " (" + (int)str.charAt(i) + ")");
+            		System.out.println("a:" + (int)'a');
+            		System.out.println("val:" + val);
+            		System.out.println("1 << val:" + (1 << val));
+            		System.out.println("checker:" + checker);
+            		System.out.println("checker & (1 << val)):" + (checker & (1 << val)));
 			if ((checker & (1 << val)) > 0) return false;
 			checker |= (1 << val);
 		}

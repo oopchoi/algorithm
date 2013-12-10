@@ -16,17 +16,27 @@ public class Question {
 		}
 	}
 
+    /**
+     * Hashtable을 활용한 중복 제거
+     * @param n
+     */
 	public static void deleteDupsA(LinkedListNode n) {
 		Hashtable table = new Hashtable();
 		LinkedListNode previous = null;
-		while (n != null) {
-			if (table.containsKey(n.data)) {
-				previous.next = n.next;
+        System.out.println("deleteDupsA:previous 변수를 null로 초기화 한다.");
+        while (n != null) {
+            System.out.println("deleteDupsA:Hashtable에 노드의 값을 키로 사용해서 존재하는지 판단한다.");
+            if (table.containsKey(n.data)) {
+                System.out.println("deleteDupsA:있으면 다음 노드를 previous 객체의 next에 할당한다.");
+                previous.next = n.next;
 			} else {
-				table.put(n.data, true);
-				previous = n;
+                System.out.println("deleteDupsA:없으면 현재 노드의 데이터를 키로 true를 값으로 사용해서 HashTable에 입력하고");
+                table.put(n.data, true);
+                System.out.println("deleteDupsA:현재 노드를 previous 변수에 할당한다.");
+                previous = n;
 			}
-			n = n.next;
+            System.out.println("deleteDupsA:최종적으로 현재 노드에 next노드를 할당한다.");
+            n = n.next;
 		}
 	}
 	
@@ -63,22 +73,32 @@ public class Question {
 			}
 		}
 	}
-	
+
+    /**
+     * 두 개의 포인터를 사용하여 중복을 제거한다.
+     * @param head
+     */
 	public static void deleteDupsB(LinkedListNode head) {
 		if (head == null) return;
 		
 		LinkedListNode current = head;
-		while (current != null) {
+        System.out.println("deleteDupsB:current 변수에 head를 할당한다.");
+        while (current != null) {
 			/* Remove all future nodes that have the same value */
 			LinkedListNode runner = current;
+            System.out.println("deleteDupsB:current가 null이 아니면 runner 변수에 current를 할당한다.");
 			while (runner.next != null) { 
-				tap(0);
+				//tap(0);
+                System.out.println("deleteDupsB:runner.next 데이터와 current의 데이터가 같다면");
 				if (runner.next.data == current.data) {
+                    System.out.println("deleteDupsB:runner.next에 runner.next.next를 할당하고");
 					runner.next = runner.next.next;
 				} else {
+                    System.out.println("deleteDupsB:같지 않다면 runner에 runner.next를 할당한다.");
 					runner = runner.next;
 				}
 			}
+            System.out.println("deleteDupsB:current 변수에 current.next를 할당한다.");
 			current = current.next;
 		}
 	}	
@@ -92,7 +112,7 @@ public class Question {
         System.out.println("---------------------------- 문제 끝 ------------------------");
         StringBuffer description = new StringBuffer();
         description.append("연결 리스트에서 중복을 제거하기 위해서는 중복을 추적할 필요가 있다.\n");
-        description.append("단순히 연결 리스트를 순회하면서 각 원소를 해시 케이블에 저장하고\n");
+        description.append("단순히 연결 리스트를 순회하면서 각 원소를 해시 테이블에 저장하고\n");
         description.append("그러다 중복을 발견하면, 그 원소는 제거하고 계속 진행한다.\n");
         description.append("이 알고리즘은 O(N) 시간에 수행된다.");
         System.out.println("---------------------------- 해설 시작 (해법 1) -----------------------");
@@ -105,7 +125,7 @@ public class Question {
 		LinkedListNode second = first;
         System.out.println(first.data + ", " + head.data + ", " + second.data);
         for (int i = 1; i < 8; i++) {
-			second = new LinkedListNode(i, null, null);
+			second = new LinkedListNode(i==4?i-1:i, null, null);
             System.out.println("second = new LinkedListNode(" + i + ")");
             System.out.println("i ("+ i + "), h (" + head + ")");
             System.out.println("i ("+ i + "), f (" + first + ")");
@@ -123,11 +143,22 @@ public class Question {
 			first = second;
 		}
 		System.out.println(head.printForward());
-		LinkedListNode clone = head.clone();
-		deleteDupsB(head);
-		deleteDupsC(clone);
-		System.out.println(tapB);
-		System.out.println(tapC);
+
+        deleteDupsA(head);
+		/*deleteDupsB(head);
+		deleteDupsC(clone);*/
+        System.out.println(head.printForward());
         System.out.println("---------------------------- 코드 실행 끝 (해법 1) -----------------------");
+
+        description.delete(0, description.length());
+        description.append("버퍼가 없다면 두 개의 포인터를 사용해 순회하여 문제를 해결한다.");
+        System.out.println("---------------------------- 해설 시작 (해법 2) -----------------------");
+        System.out.println(description);
+        System.out.println("---------------------------- 해설 끝 (해법 2) ------------------------");
+
+        System.out.println("---------------------------- 코드 실행 시작 (해법 2) -----------------------");
+		deleteDupsB(head);
+        System.out.println(head.printForward());
+        System.out.println("---------------------------- 코드 실행 끝 (해법 2) -----------------------");
 	}
 }

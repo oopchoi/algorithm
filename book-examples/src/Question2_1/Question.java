@@ -124,8 +124,9 @@ public class Question {
 		LinkedListNode head = first;
 		LinkedListNode second = first;
         System.out.println(first.data + ", " + head.data + ", " + second.data);
-        for (int i = 1; i < 8; i++) {
-			second = new LinkedListNode(i==4?i-1:i, null, null);
+        int[] num = {0,3,1,5,2,4,6,4,2,7};
+        for (int i = 1; i < 10; i++) {
+			second = new LinkedListNode(num[i], null, null);
             System.out.println("second = new LinkedListNode(" + i + ")");
             System.out.println("i ("+ i + "), h (" + head + ")");
             System.out.println("i ("+ i + "), f (" + first + ")");

@@ -1,8 +1,8 @@
 package Question2_1;
 
-import java.util.Hashtable;
-
 import CtCILibrary.LinkedListNode;
+
+import java.util.Hashtable;
 
 public class Question {
 	public static int tapB = 0;
@@ -87,19 +87,18 @@ public class Question {
 			/* Remove all future nodes that have the same value */
 			LinkedListNode runner = current;
             System.out.println("deleteDupsB:current가 null이 아니면 runner 변수에 current를 할당한다.");
-			while (runner.next != null) { 
+			while (runner.next != null) {
 				//tap(0);
                 System.out.println("deleteDupsB:runner.next 데이터와 current의 데이터가 같다면");
 				if (runner.next.data == current.data) {
                     System.out.println("deleteDupsB:runner.next에 runner.next.next를 할당하고");
-					runner.next = runner.next.next;
+                    runner.next = runner.next.next;
 				} else {
                     System.out.println("deleteDupsB:같지 않다면 runner에 runner.next를 할당한다.");
-					runner = runner.next;
+                    runner = runner.next;
 				}
 			}
             System.out.println("deleteDupsB:current 변수에 current.next를 할당한다.");
-			current = current.next;
 		}
 	}	
 	
@@ -145,6 +144,8 @@ public class Question {
 		}
 		System.out.println(head.printForward());
 
+        LinkedListNode clone = head.clone();
+
         deleteDupsA(head);
 		/*deleteDupsB(head);
 		deleteDupsC(clone);*/
@@ -158,8 +159,8 @@ public class Question {
         System.out.println("---------------------------- 해설 끝 (해법 2) ------------------------");
 
         System.out.println("---------------------------- 코드 실행 시작 (해법 2) -----------------------");
-		deleteDupsB(head);
-        System.out.println(head.printForward());
+		deleteDupsB(clone);
+        System.out.println(clone.printForward());
         System.out.println("---------------------------- 코드 실행 끝 (해법 2) -----------------------");
 	}
 }

@@ -9,4 +9,13 @@ public class Result {
 		node = n;
 		count = c;
 	}
+
+    public String toString(){
+        String description = "";
+        if(node!=null)
+            description = node.toString() + ", count:" + count;
+        else
+            description = "node is null, count:" + count;
+        return description;
+    }
 }
